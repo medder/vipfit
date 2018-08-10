@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from flask import abort, request
+from flask_jwt import jwt_required, current_identity
 
 from backend.const import PAGE_COUNT_PARAMS
 from backend.libs.bputils import create_api_blueprint
@@ -15,6 +16,13 @@ bp = create_api_blueprint('test', __name__, url_prefix='test')
 @bp.route('/hello', methods=['GET'])
 def hello():
     return 'Hello, World！'
+
+
+@bp.route('/user', methods=['GET'])
+@jwt_required()
+def user():
+    c = current_identity
+    return dict(id=c.id, phone=c.phone, name=c.name)
 
 
 @bp.route('/test', methods=['GET'])

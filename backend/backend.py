@@ -3,12 +3,14 @@
 import logging
 import flask_excel as excel
 
+from flask_jwt import JWT
 from flask import Flask
 from werkzeug.utils import import_string
 
 from backend.client import db, logger
 from backend.config import DEBUG
 from backend.libs.bputils import get_apis_blueprints
+from backend.apps.login.models.user import authenticate, identity
 
 HEADERS = {
     'Access-Control-Max-Age': '1728000',
@@ -29,6 +31,7 @@ def create_backend():
 
     db.init_app(backend)
     excel.init_excel(backend)
+    jwt = JWT(backend, authenticate, identity) # noqa
 
     if DEBUG:
         logger.setLevel(logging.DEBUG)
