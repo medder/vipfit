@@ -7,7 +7,7 @@ from flask_jwt import JWT
 from flask import Flask
 from werkzeug.utils import import_string
 
-from backend.client import db, logger
+from backend.client import db, logger, swagger
 from backend.config import DEBUG
 from backend.libs.bputils import get_apis_blueprints
 from backend.apps.login.models.user import authenticate, identity
@@ -30,6 +30,7 @@ def create_backend():
     backend.url_map.strict_slashes = False
 
     db.init_app(backend)
+    swagger.init_app(backend)
     excel.init_excel(backend)
     jwt = JWT(backend, authenticate, identity) # noqa
 

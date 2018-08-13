@@ -5,6 +5,7 @@ import logging
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import event, exc
 from sqlalchemy.pool import Pool
+from flasgger import Swagger
 
 from backend.config import LOGGER_NAME
 
@@ -27,6 +28,9 @@ db = SQLAlchemy()
 
 # redis
 # rds = Redis.from_url(REDIS_URL)
+
+# swagger
+swagger = Swagger()
 
 FORMAT = ('[%(asctime)s] [%(process)d] [%(levelname)s] '
           '[%(filename)s @ %(lineno)s]: %(message)s')

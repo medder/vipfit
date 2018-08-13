@@ -20,3 +20,14 @@ try:
     from .local_config import *  # noqa
 except ImportError:
     pass
+
+SWAGGER = dict(
+    info={
+        'title': 'VIPFIT API',
+        'version': '0.0.1',
+        'description': '后端API接口，使用flasgger编写, 前后端交互使用使用json',
+    },
+    schemes=['http'],
+    title="VIPFIT",
+    uiversion=3,
+)

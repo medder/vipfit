@@ -6,3 +6,4 @@ PyMySQL
 gunicorn
 smart-getenv
 Flask-Excel
+flasgger

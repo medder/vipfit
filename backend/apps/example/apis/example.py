@@ -15,6 +15,8 @@ bp = create_api_blueprint('test', __name__, url_prefix='test')
 
 @bp.route('/hello', methods=['GET'])
 def hello():
+    """测试url
+    """
     return 'Hello, World！'
 
 
