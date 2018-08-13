@@ -12,7 +12,7 @@ bp = create_api_blueprint('user', __name__, url_prefix='user')
 
 @bp.route('/', methods=['POST'])
 def auth():
-    """用户鉴权的API文档，该仅仅为了接口说明，无其他功能
+    """用户鉴权的API文档，该仅仅为了接口说明，无其他功能, 实际URL为/api/auth
     ---
     tags:
       - user
