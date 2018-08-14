@@ -17,7 +17,7 @@ def auth():
     tags:
       - user
     parameters:
-      - name: data
+      - name:
         type: string
         required: true
         in: body
